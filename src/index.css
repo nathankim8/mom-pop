@@ -1,0 +1,75 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-feature-settings: 'cv11', 'ss01';
+}
+
+/* Selected-location pin with a soft pulse */
+.pin-marker {
+  width: 16px;
+  height: 16px;
+  border-radius: 9999px;
+  background: #4f46e5;
+  border: 3px solid #fff;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.35);
+  position: relative;
+}
+.pin-marker::after {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  border-radius: 9999px;
+  background: rgb(79 70 229 / 0.35);
+  animation: pin-pulse 1.8s ease-out infinite;
+}
+@keyframes pin-pulse {
+  from { transform: scale(0.4); opacity: 1; }
+  to { transform: scale(1.6); opacity: 0; }
+}
+
+.site-marker {
+  cursor: pointer;
+}
+
+.maplibregl-ctrl-attrib {
+  font-size: 10px;
+}
+
+/* LADOT observed count sites: white diamonds, distinct from modeled cells and ranking badges.
+   MapLibre owns the marker element's transform, so the rotation lives on an inner span. */
+.ladot-marker-hit {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+}
+.ladot-marker {
+  display: block;
+  width: 13px;
+  height: 13px;
+  background: #fff;
+  border: 2.5px solid #0c4a6e;
+  transform: rotate(45deg);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.35);
+}
+.ladot-marker-hit:hover .ladot-marker {
+  background: #e0f2fe;
+}
+.ladot-marker--selected {
+  width: 17px;
+  height: 17px;
+  background: #0284c7;
+  border-color: #fff;
+}

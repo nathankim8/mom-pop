@@ -1,0 +1,34 @@
+# Dependencies & build output
+node_modules
+dist
+
+# OS / editor
+.DS_Store
+*.local
+.vscode/
+.idea/
+
+# Environment files, keys & credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+credentials*.json
+service-account*.json
+.claude/settings.local.json
+
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# Raw downloaded datasets (~500 MB; re-download per pipeline/DATA_SOURCES.md)
+pipeline/raw/
+
+# Large intermediate pipeline outputs (regenerate with pipeline/scripts/*.py)
+pipeline/out/grid_features.csv
+pipeline/out/grid_predictions.csv
